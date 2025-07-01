@@ -157,6 +157,9 @@
     @apply text-[1rem] font-medium leading-normal;
   }
 }
+.hero-image{
+  mask-image: url('/bg.svg');
+}
 
 .bullet {
   @apply size-3 bg-mint-dark rounded-full;

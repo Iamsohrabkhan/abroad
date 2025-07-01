@@ -1,3 +1,4 @@
+"use client";
 import ChooseUs from "@/components/chooseus";
 import FadeCrousel from "@/components/fadeCrousel";
 import Faqs from "@/components/FAQ";
@@ -11,25 +12,31 @@ import Review from "@/components/review";
 import Slider from "@/components/slider";
 import Sponsored from "@/components/sponsored";
 import { Container } from "@/components/ui/container";
+import { MotionConfig } from "motion/react";
+import { useState } from "react";
 export default function Home() {
+  const [state, setState] = useState<boolean>(true);
+
   return (
     <>
-      <Header />
-      <Hero />
-      <Marquee />
-      <Container>
-        <Slider />
-        <PopularTrips />
-      </Container>
-      <FadeCrousel />
-      <Container>
-        <Faqs />
-        <Review />
-        <Sponsored />
-        <Recomendeddestinations />
-        <ChooseUs />
-      </Container>
-      <Footer />
+      <MotionConfig transition={{ layout: { duration: 0.6, ease: "circOut" } }}>
+        <Header state={state} setState={setState} />
+        <Hero state={state} setState={setState} />
+        <Marquee />
+        <Container>
+          <Slider />
+          <PopularTrips />
+        </Container>
+        <FadeCrousel />
+        <Container>
+          <Faqs />
+          <Review />
+          <Sponsored />
+          <Recomendeddestinations />
+          <ChooseUs />
+        </Container>
+        <Footer />
+      </MotionConfig>
     </>
   );
 }

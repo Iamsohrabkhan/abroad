@@ -81,7 +81,7 @@ const FadeCarousel = () => {
 
   return (
     <section
-      className={`md:min-h-screen md:flex md:justify-center md:items-center md:flex-col bg-[#ebf2ff] py-12 md:py-0 mt-24 ${
+      className={`md:h-screen md:max-h-[700px] md:flex md:justify-center md:items-center md:flex-col bg-[#ebf2ff] py-12 md:py-0 mt-24 ${
         activeIndex === 0
           ? "md:bg-[#192325]"
           : activeIndex === 1

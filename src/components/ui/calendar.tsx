@@ -70,7 +70,7 @@ function Calendar({
           defaultClassNames.dropdowns
         ),
         dropdown_root: cn(
-          "relative has-focus:border-ring border border-input shadow-xs has-focus:ring-ring/50 has-focus:ring-[3px] rounded-full",
+          "relative has-focus:border-ring border border-input shadow-xs has-focus:ring-ring/50 has-focus:ring-[3px] rounded-md",
           defaultClassNames.dropdown_root
         ),
         dropdown: cn("absolute inset-0 opacity-0", defaultClassNames.dropdown),
@@ -78,13 +78,13 @@ function Calendar({
           "select-none font-medium",
           captionLayout === "label"
             ? "text-sm"
-            : "rounded-full pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
+            : "rounded-md pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
           defaultClassNames.caption_label
         ),
         table: "w-full border-collapse",
         weekdays: cn("flex", defaultClassNames.weekdays),
         weekday: cn(
-          "text-muted-foreground rounded-full flex-1 font-normal text-[0.8rem] select-none",
+          "text-muted-foreground rounded-md flex-1 font-normal text-[0.8rem] select-none",
           defaultClassNames.weekday
         ),
         week: cn("flex w-full mt-2", defaultClassNames.week),
@@ -97,29 +97,25 @@ function Calendar({
           defaultClassNames.week_number
         ),
         day: cn(
-          "relative w-full h-full p-0 text-center group/day aspect-square select-none",
-          // Range styling improvements
-          "[&:has([data-range-start=true])]:bg-black/10 [&:has([data-range-start=true])]:rounded-l-lg",
-          "[&:has([data-range-end=true])]:bg-black/10 [&:has([data-range-end=true])]:rounded-r-lg",
-          "[&:has([data-range-middle=true])]:bg-black/5",
+          "relative w-full h-full p-0 text-center [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md group/day aspect-square select-none",
           defaultClassNames.day
         ),
         range_start: cn(
-          "rounded-l-lg bg-black/10",
+          "rounded-l-md bg-accent",
           defaultClassNames.range_start
         ),
-        range_middle: cn("bg-black/5 rounded-none", defaultClassNames.range_middle),
-        range_end: cn("rounded-r-lg bg-black/10", defaultClassNames.range_end),
+        range_middle: cn("rounded-none", defaultClassNames.range_middle),
+        range_end: cn("rounded-r-md bg-accent", defaultClassNames.range_end),
         today: cn(
-          "bg-accent text-accent-foreground rounded-full data-[selected=true]:rounded-none",
+          "bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none",
           defaultClassNames.today
         ),
         outside: cn(
-          "text-muted-foreground aria-selected:text-muted-foreground opacity-50",
+          "text-muted-foreground aria-selected:text-muted-foreground",
           defaultClassNames.outside
         ),
         disabled: cn(
-          "text-muted-foreground opacity-30 cursor-not-allowed",
+          "text-muted-foreground opacity-50",
           defaultClassNames.disabled
         ),
         hidden: cn("invisible", defaultClassNames.hidden),
@@ -202,38 +198,7 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        // Base button styling
-        "flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal relative z-10",
-        
-        // Hover states
-        "hover:bg-black/10 hover:text-foreground transition-colors duration-200",
-        
-        // Selected single date (black background)
-        "data-[selected-single=true]:bg-black data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-black/90",
-        
-        // Range start styling (black background)
-        "data-[range-start=true]:bg-black data-[range-start=true]:text-white data-[range-start=true]:hover:bg-black/90 data-[range-start=true]:rounded-lg",
-        
-        // Range end styling (black background)
-        "data-[range-end=true]:bg-black data-[range-end=true]:text-white data-[range-end=true]:hover:bg-black/90 data-[range-end=true]:rounded-lg",
-        
-        // Range middle styling (light gray background)
-        "data-[range-middle=true]:bg-black/20 data-[range-middle=true]:text-foreground data-[range-middle=true]:hover:bg-black/30 data-[range-middle=true]:rounded-none",
-        
-        // Focus states
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2",
-        "group-data-[focused=true]/day:ring-2 group-data-[focused=true]/day:ring-black group-data-[focused=true]/day:ring-offset-2",
-        
-        // Disabled states
-        "disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent",
-        
-        // Today styling when not selected
-        "data-[today=true]:font-semibold data-[today=true]:text-foreground",
-        "data-[today=true]:data-[selected-single=false]:bg-accent/50",
-        
-        // Text styling
-        "[&>span]:text-xs [&>span]:opacity-70",
-        
+        "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[range-middle=true]:bg-accent data-[range-middle=true]:text-accent-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md [&>span]:text-xs [&>span]:opacity-70",
         defaultClassNames.day,
         className
       )}

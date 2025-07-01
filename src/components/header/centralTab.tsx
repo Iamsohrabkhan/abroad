@@ -3,10 +3,15 @@ import { Bus, HeartHandshake, PackageOpen } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-const CentralTab = () => {
+const CentralTab = ({ state }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <div className="hidden lg:block px-14 bg-white/60 backdrop-blur-md rounded-bl-[40px] rounded-br-[40px] pt-4 pb-7">
+    <motion.div
+      initial={false}
+      animate={{ y: state ? "-24px" : "calc(-100% - 24px)" }}
+      transition={{ duration: 0.6, ease: "circOut" }}
+      className="hidden lg:block px-14 bg-white/60 backdrop-blur-md rounded-bl-[40px] rounded-br-[40px] pt-4 pb-7 absolute top-0 left-1/2 -translate-x-1/2 border-2 border-white"
+    >
       <ul className="flex justify-between items-center gap-8">
         {Tabs.map((tab, i) => {
           return (
@@ -41,7 +46,7 @@ const CentralTab = () => {
           );
         })}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 export default CentralTab;

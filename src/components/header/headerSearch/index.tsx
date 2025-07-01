@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 
 import { useMeasure } from "react-use";
 
-const Search = () => {
+const HeaderSearch = ({ state }) => {
   const [active, setActive] = useState<boolean>(false);
   const [activePill, setActivePill] = useState<any>(0);
   const container = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ const Search = () => {
     setActivePill(false);
   });
   const fromRef = useRef<HTMLDivElement>(null);
-  const [toRef, { width, left, x }] = useMeasure();
+  const [toRef, { width }] = useMeasure();
 
   useEffect(() => {
     if (container.current) {
@@ -38,17 +38,19 @@ const Search = () => {
   return (
     <motion.div
       ref={container}
-      className="relative hidden lg:block pointer-events-auto z-[999]"
+      className="relative hidden lg:block z-[999]"
       layoutId="search"
     >
-      <div
-        className={`lg:rounded-full max-w-84 pointer-events-auto lg:max-w-none flex lg:flex-row flex-col duration-300 -space-x-2 transition-all ease-out [&_input]:cursor-pointer ${
+      <motion.div
+        className={`lg:rounded-full  lg:max-w-none flex lg:flex-row flex-col duration-300 -space-x-2 transition-all ease-out [&_input]:cursor-pointer ${
           !active ? "bg-white" : "bg-accent"
-        }`}
+        } ${state && "w-64"}`}
+        layout
       >
         <div ref={toRef} className="flex relative ">
-          <div
-            className="from py-3.5 pl-8 pr-0 2xl:pr-16 lg:rounded-full hover:bg-[#DDDDDD]  space-y-1 cursor-pointer relative isolate "
+          <motion.div
+            className="from py-3.5 pl-8 pr-0 2xl:pr-4 lg:rounded-full hover:bg-[#DDDDDD]  space-y-1 cursor-pointer relative isolate "
+            layout
             ref={fromRef}
             onClick={() => {
               setActivePill(1);
@@ -62,16 +64,17 @@ const Search = () => {
               className="text-sm w-fit placeholder:text-black/50 outline-none border-none relative z-20"
               placeholder="Where from?"
             ></input>
-          </div>
+          </motion.div>
           <div className="absolute bg-white left-1/2 top-1/2 translate-x-[calc(-50%-1rem)] shadow-xl p-3 rounded-full -translate-y-1/2 z-50">
             <ArrowLeftRight className="size-5" />
           </div>
-          <div
+          <motion.div
+            layout
             onClick={() => {
               setActivePill(2);
               toInputRef?.current?.focus();
             }}
-            className="to py-3.5 pl-8 pr-0 2xl:pr-16 rounded-full cursor-pointer hover:bg-[#DDDDDD]  space-y-1 relative"
+            className="to py-3.5 pl-8 pr-0 2xl:pr-4 rounded-full cursor-pointer hover:bg-[#DDDDDD]  space-y-1 relative"
           >
             {activePill === 2 && <Pill />}
             <h3 className="text-sm relative z-20">To</h3>
@@ -80,7 +83,7 @@ const Search = () => {
               className="text-sm placeholder:text-black/50 outline-none border-none relative z-20"
               placeholder="Where to?"
             ></input>
-          </div>
+          </motion.div>
         </div>
         <div className="flex">
           <div
@@ -94,14 +97,18 @@ const Search = () => {
             <h3 className="text-sm relative z-50">Departure</h3>
             <h3 className="text-sm text-black/50 relative z-50">Add date</h3>
           </div>
-          <div
-            className="return py-3.5 pl-8 pr-4 2xl:pr-16 rounded-full hover:bg-[#DDDDDD] cursor-pointer space-y-1 relative "
-            onClick={() => setActivePill(4)}
-          >
-            {activePill === 4 && <Pill />}
-            <h3 className="text-sm  relative z-50">Return</h3>
-            <h3 className="text-sm relative z-50 text-black/50">(Optional)</h3>
-          </div>
+          {state && (
+            <div
+              className="return py-3.5 pl-8 pr-4 2xl:pr-16 rounded-full hover:bg-[#DDDDDD] cursor-pointer space-y-1 relative "
+              onClick={() => setActivePill(4)}
+            >
+              {activePill === 4 && <Pill />}
+              <h3 className="text-sm  relative z-50">Return</h3>
+              <h3 className="text-sm relative z-50 text-black/50 ">
+                (Optional)
+              </h3>
+            </div>
+          )}
         </div>
         <div
           className="return flex justify-between items-center pl-6 pr-3 gap-5 py-3.5  rounded-full hover:bg-[#DDDDDD] cursor-pointer relative"
@@ -136,10 +143,10 @@ const Search = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Dialog active={active} activePill={activePill} toWidth={width / 2} />
     </motion.div>
   );
 };
 
-export default Search;
+export default HeaderSearch;

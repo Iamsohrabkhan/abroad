@@ -8,6 +8,7 @@ export function CalenderDialog({ activePill }: { activePill: any }) {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(2025, 5, 12)
   );
+  console.log(date);
 
   return (
     <Calendar

@@ -7,6 +7,7 @@ import React from "react";
 const ChooseUs = () => {
   return (
     <section className="">
+      
       <h2 className="text-center mb-12">Why choose us to book ?</h2>
       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
         <Card

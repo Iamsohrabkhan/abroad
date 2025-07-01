@@ -8,8 +8,8 @@ const NavButton = ({
 }: {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-
 }) => {
+  
   return (
     <div className="flex justify-center items-center">
       <Button variant="secondary" className="rounded-full mr-2 cursor-pointer">
@@ -26,7 +26,6 @@ const NavButton = ({
         variant="secondary"
         size="icon"
         className="menu-button rounded-full cursor-pointer relative"
-      
       >
         {isOpen && <div className="cross absolute inset-0  z-[61]"></div>}
         <div
