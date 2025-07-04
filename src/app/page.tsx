@@ -11,32 +11,31 @@ import Recomendeddestinations from "@/components/recomendeddestinations";
 import Review from "@/components/review";
 import Slider from "@/components/slider";
 import Sponsored from "@/components/sponsored";
+import { FromValueProvider } from "@/components/store/formValueContext";
 import { Container } from "@/components/ui/container";
 import { MotionConfig } from "motion/react";
 import { useState } from "react";
 export default function Home() {
-  const [state, setState] = useState<boolean>(true);
-
   return (
     <>
-      <MotionConfig transition={{ layout: { duration: 0.6, ease: "circOut" } }}>
-        <Header state={state} setState={setState} />
-        <Hero state={state} setState={setState} />
-        <Marquee />
-        <Container>
-          <Slider />
-          <PopularTrips />
-        </Container>
-        <FadeCrousel />
-        <Container>
-          <Faqs />
-          <Review />
-          <Sponsored />
-          <Recomendeddestinations />
-          <ChooseUs />
-        </Container>
-        <Footer />
-      </MotionConfig>
+      <Header />
+      <FromValueProvider>
+        <Hero />
+      </FromValueProvider>
+      <Marquee />
+      <Container>
+        <Slider />
+        <PopularTrips />
+      </Container>
+      <FadeCrousel />
+      <Container>
+        <Faqs />
+        <Review />
+        <Sponsored />
+        <Recomendeddestinations />
+        <ChooseUs />
+      </Container>
+      <Footer />
     </>
   );
 }

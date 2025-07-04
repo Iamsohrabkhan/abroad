@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Whatsapp = (props) => (
+const SvgIcon: React.FC<React.SVGProps<SVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -8,7 +8,7 @@ const Whatsapp = (props) => (
     fill="none"
     viewBox="0 0 20 20"
   >
-    <g clipPath="url(#a)">
+    <g clipPath="url(#clip0_1592_21922)">
       <path
         fill="#fff"
         fillRule="evenodd"
@@ -17,11 +17,11 @@ const Whatsapp = (props) => (
       ></path>
     </g>
     <defs>
-      <clipPath id="a">
+      <clipPath id="clip0_1592_21922">
         <path fill="#fff" d="M0 0h20v20H0z"></path>
       </clipPath>
     </defs>
   </svg>
 );
 
-export default Whatsapp;
+export default SvgIcon;

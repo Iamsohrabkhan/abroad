@@ -7,7 +7,7 @@ import Whatsapp from "../../icons/whatsapp";
 import Youtube from "../../icons/youtube";
 const SocialLink = () => {
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-2 ">
       <Facebook />
       <Twitter />
       <Google />

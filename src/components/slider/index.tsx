@@ -43,7 +43,7 @@ const Slider = () => {
         {/* Slide 1 */}
         <SwiperSlide className="relative !aspect-video rounded-md text-white">
           <img
-            src="https://images.unsplash.com/photo-1553869901-ddcac1bfe23e?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.1.0"
+            src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             className="w-full h-full object-center object-cover rounded-md"
             alt="Algeria 1"
           />
@@ -59,18 +59,19 @@ const Slider = () => {
               Lorem ipsum dolor sit amet consectetur.
             </p>
           </div>
+          <div className="absolute bottom-0 left-0 w-full h-24 pointer-events-none [background:linear-gradient(to_top,#000,transparent)] z-10" />
         </SwiperSlide>
 
         {/* Slide 2 */}
         <SwiperSlide className="relative !aspect-video rounded-md">
           <img
-            src="https://images.unsplash.com/photo-1607261720324-b68cd0857a8a?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0"
-            className="w-full h-full object-center object-cover rounded-md brightness-50"
+            src="https://images.unsplash.com/photo-1555731150-a62326c11e52?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            className="w-full h-full object-center object-cover rounded-md "
             alt="Algeria 2"
           />
           <div className="absolute inset-0 text-white px-8 flex flex-col justify-center">
             <h2 className="text-2xl font-bold mb-2">Algeria</h2>
-            <p className="mb-3">
+            <p className="mb-3 relative z-20">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <button className="bg-white text-black px-4 py-2 rounded hover:bg-gray-100 transition-colors self-start">
@@ -80,12 +81,13 @@ const Slider = () => {
               Lorem ipsum dolor sit amet consectetur.
             </p>
           </div>
+          <div className="absolute bottom-0 left-0 w-full h-24 pointer-events-none [background:linear-gradient(to_top,#000,transparent)] z-10" />
         </SwiperSlide>
 
         {/* Slide 3 */}
         <SwiperSlide className="relative !aspect-video rounded-md text-white">
           <img
-            src="https://images.unsplash.com/photo-1692093520322-f8b9250293b5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0"
+            src="https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             className="w-full h-full object-center object-cover rounded-md"
             alt="Algeria 3"
           />
@@ -100,7 +102,8 @@ const Slider = () => {
             <p className="text-xs mt-2 opacity-80">
               Lorem ipsum dolor sit amet consectetur.
             </p>
-          </div>
+          </div>{" "}
+          <div className="absolute bottom-0 left-0 w-full h-24 pointer-events-none [background:linear-gradient(to_top,#000,transparent)] z-10" />
         </SwiperSlide>
 
         {/* Slide 4 */}
@@ -122,6 +125,7 @@ const Slider = () => {
               Lorem ipsum dolor sit amet consectetur.
             </p>
           </div>
+          <div className="absolute bottom-0 left-0 w-full h-24 pointer-events-none [background:linear-gradient(to_top,#000,transparent)] z-10" />
         </SwiperSlide>
 
         {/* Slide 5 */}
@@ -143,6 +147,7 @@ const Slider = () => {
               Lorem ipsum dolor sit amet consectetur.
             </p>
           </div>
+          <div className="absolute bottom-0 left-0 w-full h-24 pointer-events-none [background:linear-gradient(to_top,#000,transparent)] z-10" />
         </SwiperSlide>
       </Swiper>
 

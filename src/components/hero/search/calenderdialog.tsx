@@ -10,15 +10,18 @@ export function CalenderDialog({ activePill }: { activePill: any }) {
   );
 
   return (
-    <Calendar
-      mode="range"
-      defaultMonth={date}
-      numberOfMonths={2}
-      selected={date}
-      onSelect={setDate}
-      // showOutsideDays={false}
+    <div className="px-6">
+      <Calendar
+        mode="range"
+        defaultMonth={date}
+        numberOfMonths={2}
+        selected={date}
+        onSelect={setDate}
+        // showOutsideDays={false}
       
-      className="rounded-lg border shadow-sm w-full"
-    />
+        className=" shadow-none w-full"
+      
+      />
+    </div>
   );
 }

@@ -54,22 +54,22 @@ const trips: Trip[] = [
   },
 ];
 
-
 const PopularTrips: React.FC = () => {
   return (
-    <section className="">
+    <section className="relative">
       <h2 className="text-center mb-12">Popular Trips in France</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
         {trips.map((trip) => (
-          <div key={trip.id} className="relative aspect-video rounded-md">
+          <div key={trip.id} className="relative aspect-video rounded-md mask-">
+        <div className="absolute bottom-0 left-0 w-full h-32 pointer-events-none [background:linear-gradient(to_top,#000,transparent)] z-10"></div>
             <Image
               src={trip.imageUrl}
               alt={`${trip.from} to ${trip.to}`}
               className="object-center object-cover rounded-md"
               fill
             />
-            <h6 className="absolute left-2 bottom-2 text-white inline-flex justify-center items-center gap-2">
+            <h6 className="absolute left-2 bottom-2 text-white inline-flex justify-center items-center gap-2 z-20">
               {trip.from} <MoveRight /> {trip.to}
             </h6>
           </div>

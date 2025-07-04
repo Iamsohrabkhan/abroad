@@ -6,15 +6,18 @@ import { AppLogo } from "./AppLogo";
 import { Heading } from "./Heading";
 import { MobileSearch } from "./mobilesearch";
 import { motion, useInView } from "motion/react";
+import { useAppContext } from "../store/AppContext";
 
-const Hero = ({ state, setState }) => {
+const Hero = () => {
   const searchHelperRef = useRef(null);
+      const { setHeroSearchBarActive,heroSearchBarActive } = useAppContext();
+
   const isInView = useInView(searchHelperRef, {
     margin: "-200px 0px -0px 0px",
     initial: true,
   });
   useEffect(() => {
-    setState(isInView);
+    setHeroSearchBarActive(isInView);
   }, [isInView]);
 
   return (
@@ -42,7 +45,7 @@ const Hero = ({ state, setState }) => {
             className="absolute w-64 h-12 left-1/2 top-0 -translate-1/2"
           />
 
-          {state && <Search />}
+          {heroSearchBarActive && <Search />}
         </div>
         <MobileSearch />
         <AppLogo />
