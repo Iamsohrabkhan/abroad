@@ -5,6 +5,8 @@ import { useInputValue } from "react-haiku";
 type FromValueContextType = {
   fromValue: string;
   setFromValue: React.Dispatch<string>;
+  toValue:string;
+  setToValue:React.Dispatch<string>;
   rowReverse: boolean;
   setRowReverse: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -17,9 +19,10 @@ export const FromValueProvider = ({ children }: { children: ReactNode }) => {
     const [rowReverse, setRowReverse] = useState(false);
 
   const [fromValue, setFromValue] = useInputValue("");
+  const [toValue,setToValue]=useInputValue("")
   return (
     <FromValueContext.Provider
-      value={{ fromValue, setFromValue, rowReverse, setRowReverse }}
+      value={{ fromValue, setFromValue, rowReverse, setRowReverse,toValue,setToValue }}
     >
       {children}
     </FromValueContext.Provider>

@@ -18,8 +18,8 @@ import { useState } from "react";
 export default function Home() {
   return (
     <>
-      <Header />
       <FromValueProvider>
+        <Header />
         <Hero />
       </FromValueProvider>
       <Marquee />

@@ -10,7 +10,7 @@ import { useAppContext } from "../store/AppContext";
 
 const Hero = () => {
   const searchHelperRef = useRef(null);
-      const { setHeroSearchBarActive,heroSearchBarActive } = useAppContext();
+  const { setHeroSearchBarActive, heroSearchBarActive } = useAppContext();
 
   const isInView = useInView(searchHelperRef, {
     margin: "-200px 0px -0px 0px",
@@ -22,11 +22,19 @@ const Hero = () => {
 
   return (
     <section className=" relative mb-18 min-h-screen">
+      <svg width="0" height="0" style={{ position: "absolute" }}>
+        <defs>
+          <clipPath id="myClipPath" clipPathUnits="objectBoundingBox">
+            <path d="M2 0.9C0.635 1 0.28 0.99 0 0.9V0H1V0.9Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
       <Image
         fill
-        src="/bg.svg"
+        src="/hero.png"
         alt="hero"
-        className="hero-image object-center object-cover size-full lg:block hidden"
+        className="hero-image object-center object-cover size-full lg:block hidden [clip-path:url(#myClipPath)] [-webkit-clip-path:url(#myClipPath)]"
       />
       <Image
         fill

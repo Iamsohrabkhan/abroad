@@ -13,18 +13,14 @@ import { useAppContext } from "@/components/store/AppContext";
 import { useFromValue } from "@/components/store/formValueContext";
 
 const Search = () => {
-  const { fromValue, setFromValue } = useFromValue();
+  const { fromValue, setFromValue, toValue, setToValue } = useFromValue();
 
   const container = useRef<HTMLDivElement>(null);
 
   const fromInputRef = useRef<HTMLInputElement>(null);
   const toInputRef = useRef<HTMLInputElement>(null);
-  const {
-    setActiveDialog,
-    setActiveDialogPill,
-    activeDialog,
-    activeDialogPill,
-  } = useAppContext();
+  const [activeDialog, setActiveDialog] = useState<boolean>(false);
+  const [activeDialogPill, setActiveDialogPill] = useState<any>(0);
 
   useEventListener("click", () => setActiveDialog(true), container);
   useClickOutside(container, () => {
@@ -43,13 +39,15 @@ const Search = () => {
       }
     }
   }, [activeDialog]);
-
-  const { setRowReverse, rowReverse } = useFromValue();
+  const { setFinalHeaderSearchActive } = useAppContext();
   return (
     <motion.div
       ref={container}
       className="relative hidden lg:block pointer-events-auto z-[999]"
       layoutId="search"
+      onLayoutAnimationComplete={() => {
+        setFinalHeaderSearchActive(false);
+      }}
     >
       <div
         className={`lg:rounded-full border-2 border-[#0000001A] max-w-84 pointer-events-auto lg:max-w-none flex lg:flex-row flex-col duration-300 -space-x-2 transition-all ease-out [&_input]:cursor-pointer ${
@@ -57,14 +55,12 @@ const Search = () => {
         }`}
       >
         <motion.div
-          // layout
           transition={{ duration: 1.2 }}
           ref={toRef}
-          className={`flex relative ${rowReverse && "flex-row-reverse"} `}
+          id="toFromParent"
+          className={`flex relative `}
         >
           <motion.div
-            layout
-            layoutDependency={rowReverse}
             transition={{ duration: 0.62 }}
             className="from py-3.5 pl-8 pr-0 2xl:pr-16 lg:rounded-full hover:bg-[#DDDDDD]  space-y-1 cursor-pointer relative isolate "
             ref={fromRef}
@@ -86,15 +82,19 @@ const Search = () => {
           <div
             className="absolute bg-white left-1/2 top-1/2 translate-x-[calc(-50%-1rem)] shadow-xl p-3 rounded-full -translate-y-1/2 z-50 cursor-pointer"
             onClick={(e: React.MouseEvent) => {
-              e.stopPropagation(); // This should stop bubbling to the parent
-              setRowReverse(!rowReverse);
+              e.stopPropagation();
+              setActiveDialog(false);
+
+              const temp = fromValue;
+              setFromValue(toValue);
+              setToValue(temp);
             }}
           >
             <ArrowLeftRight className="size-5" />
           </div>
           <motion.div
-            layout
-            layoutDependency={rowReverse}
+            // layout
+            // layoutDependency={rowReverse}
             transition={{ duration: 0.6 }}
             onClick={() => {
               setActiveDialogPill(2);
@@ -106,6 +106,8 @@ const Search = () => {
             <h3 className="text-sm relative z-20">To</h3>
             <input
               ref={toInputRef}
+              value={toValue}
+              onChange={setToValue}
               className="text-sm placeholder:text-black/50 outline-none border-none relative z-20"
               placeholder="Where to?"
             ></input>

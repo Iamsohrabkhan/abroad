@@ -4,6 +4,8 @@ import { useInputValue } from "react-haiku";
 interface AppContextType {
   heroSearchBarActive: boolean;
   setHeroSearchBarActive: React.Dispatch<React.SetStateAction<boolean>>;
+  headerSearchBarClick: boolean;
+  setHeaderSearchBarClick: React.Dispatch<React.SetStateAction<boolean>>;
   rowReverse: boolean;
   setRowReverse: React.Dispatch<React.SetStateAction<boolean>>;
   activeDialog: boolean;
@@ -12,6 +14,8 @@ interface AppContextType {
   setFromValue: React.Dispatch<string>;
   activeDialogPill: number;
   setActiveDialogPill: React.Dispatch<React.SetStateAction<boolean>>;
+  finalHeaderSearchActive: boolean;
+  setFinalHeaderSearchActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -24,6 +28,10 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [activeDialogPill, setActiveDialogPill] = useState<any>(0);
 
   const [heroSearchBarActive, setHeroSearchBarActive] = useState<boolean>(true);
+  const [headerSearchBarClick, setHeaderSearchBarClick] =
+    useState<boolean>(true);
+
+  const [finalHeaderSearchActive, setFinalHeaderSearchActive] = useState(false);
   const value = {
     heroSearchBarActive,
     setHeroSearchBarActive,
@@ -35,6 +43,10 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     setActiveDialog,
     activeDialogPill,
     setActiveDialogPill,
+    headerSearchBarClick,
+    setHeaderSearchBarClick,
+    finalHeaderSearchActive,
+    setFinalHeaderSearchActive,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
