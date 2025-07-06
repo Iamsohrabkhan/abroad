@@ -19,40 +19,45 @@ const HeaderSearchFinalSearch = () => {
 
   const fromInputRef = useRef<HTMLInputElement>(null);
   const toInputRef = useRef<HTMLInputElement>(null);
-  const [activeDialog, setActiveDialog] = useState<boolean>(false);
-  const [activeDialogPill, setActiveDialogPill] = useState<any>(0);
+  const {
+    activeDialogHeader,
+    activeDialogHeaderPill,
+    setActiveDialogHeader,
+    setActiveDialogHeaderPill,
+  } = useAppContext();
 
-  useEventListener("click", () => setActiveDialog(true), container);
+  useEventListener("click", () => setActiveDialogHeader(true), container);
   useClickOutside(container, () => {
-    setActiveDialog(false);
-    setActiveDialogPill(false);
+    setActiveDialogHeader(false);
+    setActiveDialogHeaderPill(false);
   });
   const fromRef = useRef<HTMLDivElement>(null);
   const [toRef, { width }] = useMeasure();
-  const { finalHeaderSearchActive, setFinalHeaderSearchActive } = useAppContext();
+  const { finalHeaderSearchActive, setFinalHeaderSearchActive } =
+    useAppContext();
   useEffect(() => {
     if (container.current) {
-      if (activeDialog) {
+      if (activeDialogHeader) {
         container.current.classList.add("active");
       } else {
         container.current.classList.remove("active");
       }
     }
-  }, [activeDialog]);
+  }, [activeDialogHeader]);
   return (
     <>
       {finalHeaderSearchActive && (
         <motion.div
           ref={container}
           className="relative hidden lg:block pointer-events-auto z-[999]"
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3, ease:"circOut" }}
           layoutId="search"
         >
           <div
             className={`lg:rounded-full border-2 border-[#0000001A] max-w-84 pointer-events-auto lg:max-w-none flex lg:flex-row flex-col duration-300 -space-x-2 transition-all ease-out [&_input]:cursor-pointer ${
-              !activeDialog ? "bg-white" : "bg-accent"
+              !activeDialogHeader ? "bg-white" : "bg-accent"
             }`}
           >
             <motion.div
@@ -63,17 +68,16 @@ const HeaderSearchFinalSearch = () => {
               className={`flex relative `}
             >
               <motion.div
-                // layout
-                // layoutDependency={rowReverse}
+             
                 transition={{ duration: 0.62 }}
                 className="from py-3.5 pl-8 pr-0 2xl:pr-16 lg:rounded-full hover:bg-[#DDDDDD]  space-y-1 cursor-pointer relative isolate "
                 ref={fromRef}
                 onClick={() => {
-                  setActiveDialogPill(1);
+                  setActiveDialogHeaderPill(1);
                   fromInputRef?.current?.focus();
                 }}
               >
-                {activeDialogPill === 1 && <Pill />}
+                {activeDialogHeaderPill === 1 && <Pill />}
                 <h3 className="text-sm  relative z-20 w-fit">From</h3>
                 <input
                   ref={fromInputRef}
@@ -87,7 +91,7 @@ const HeaderSearchFinalSearch = () => {
                 className="absolute bg-white left-1/2 top-1/2 translate-x-[calc(-50%-1rem)] shadow-xl p-3 rounded-full -translate-y-1/2 z-50 cursor-pointer"
                 onClick={(e: React.MouseEvent) => {
                   e.stopPropagation();
-                  setActiveDialog(false);
+                  setActiveDialogHeader(false);
 
                   const temp = fromValue;
                   setFromValue(toValue);
@@ -101,12 +105,12 @@ const HeaderSearchFinalSearch = () => {
                 // layoutDependency={rowReverse}
                 transition={{ duration: 0.6 }}
                 onClick={() => {
-                  setActiveDialogPill(2);
+                  setActiveDialogHeaderPill(2);
                   toInputRef?.current?.focus();
                 }}
                 className="to py-3.5 pl-8 pr-0 2xl:pr-16 rounded-full cursor-pointer hover:bg-[#DDDDDD]  space-y-1 relative"
               >
-                {activeDialogPill === 2 && <Pill />}
+                {activeDialogHeaderPill === 2 && <Pill />}
                 <h3 className="text-sm relative z-20">To</h3>
                 <input
                   ref={toInputRef}
@@ -128,10 +132,10 @@ const HeaderSearchFinalSearch = () => {
               <div
                 className="desparture py-3.5 pl-8 pr-4 2xl:pr-16 rounded-full hover:bg-[#DDDDDD] cursor-pointer space-y-1 relative"
                 onClick={() => {
-                  setActiveDialogPill(3);
+                  setActiveDialogHeaderPill(3);
                 }}
               >
-                {activeDialogPill === 3 && <Pill />}
+                {activeDialogHeaderPill === 3 && <Pill />}
 
                 <h3 className="text-sm relative z-50">Departure</h3>
                 <h3 className="text-sm text-black/50 relative z-50 font-normal mt-1.5">
@@ -146,9 +150,9 @@ const HeaderSearchFinalSearch = () => {
               </div>
               <div
                 className="return py-3.5 pl-8 pr-4 2xl:pr-16 rounded-full hover:bg-[#DDDDDD] cursor-pointer space-y-1 relative "
-                onClick={() => setActiveDialogPill(4)}
+                onClick={() => setActiveDialogHeaderPill(4)}
               >
-                {activeDialogPill === 4 && <Pill />}
+                {activeDialogHeaderPill === 4 && <Pill />}
                 <h3 className="text-sm  relative z-50">Return</h3>
                 <h3 className="text-sm relative z-50 text-black/50 font-normal mt-1.5">
                   (Optional)
@@ -163,9 +167,9 @@ const HeaderSearchFinalSearch = () => {
             </div>
             <div
               className="return flex justify-between items-center pl-6 pr-3 gap-5 py-3.5  rounded-full hover:bg-[#DDDDDD] cursor-pointer relative"
-              onClick={() => setActiveDialogPill(5)}
+              onClick={() => setActiveDialogHeaderPill(5)}
             >
-              {activeDialogPill === 5 && <Pill />}
+              {activeDialogHeaderPill === 5 && <Pill />}
               <div className="  space-y-1">
                 <h3 className="text-sm relative z-20">Travellers</h3>
                 <h3 className="text-sm text-black/50 font-normal mt-1.5 outline-none border-none relative z-20">
@@ -175,13 +179,13 @@ const HeaderSearchFinalSearch = () => {
               <div className="w-24 2xl:w-32 flex justify-end items-center relative z-20">
                 <div
                   className={`h-12   rounded-full flex justify-center items-center transition-all duration-300 ease-in-out ${
-                    activeDialog
+                    activeDialogHeader
                       ? "w-24 2xl:w-32 gap-3 bg-[#279678] border-[3px] border-[#25D1A3]"
                       : "w-12 bg-[#25D1A34D]"
                   }`}
                 >
                   <SearchIcon className="stroke-white size-4 " />
-                  {activeDialog && (
+                  {activeDialogHeader && (
                     <motion.h6
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -196,8 +200,8 @@ const HeaderSearchFinalSearch = () => {
             </div>
           </div>
           <Dialog
-            active={activeDialog}
-            activePill={activeDialogPill}
+            active={activeDialogHeader}
+            activePill={activeDialogHeaderPill}
             toWidth={width / 2}
           />
         </motion.div>

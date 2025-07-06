@@ -16,6 +16,12 @@ interface AppContextType {
   setActiveDialogPill: React.Dispatch<React.SetStateAction<boolean>>;
   finalHeaderSearchActive: boolean;
   setFinalHeaderSearchActive: React.Dispatch<React.SetStateAction<boolean>>;
+  activeDialogHeader: boolean;
+  setActiveDialogHeader: React.Dispatch<React.SetStateAction<boolean>>;
+  activeDialogHeaderPill: any;
+  setActiveDialogHeaderPill: React.Dispatch<React.SetStateAction<any>>;
+  initalFinalHeaderPill: boolean;
+  setInitalFinalHeaderPill: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -30,8 +36,10 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [heroSearchBarActive, setHeroSearchBarActive] = useState<boolean>(true);
   const [headerSearchBarClick, setHeaderSearchBarClick] =
     useState<boolean>(true);
-
+  const [activeDialogHeader, setActiveDialogHeader] = useState<boolean>(false);
+  const [activeDialogHeaderPill, setActiveDialogHeaderPill] = useState<any>(0);
   const [finalHeaderSearchActive, setFinalHeaderSearchActive] = useState(false);
+  const [initalFinalHeaderPill, setInitalFinalHeaderPill] = useState(false);
   const value = {
     heroSearchBarActive,
     setHeroSearchBarActive,
@@ -47,6 +55,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     setHeaderSearchBarClick,
     finalHeaderSearchActive,
     setFinalHeaderSearchActive,
+    activeDialogHeader,
+    setActiveDialogHeader,
+    activeDialogHeaderPill,
+    setActiveDialogHeaderPill,
+    initalFinalHeaderPill,
+    setInitalFinalHeaderPill,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

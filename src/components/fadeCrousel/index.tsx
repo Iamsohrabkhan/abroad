@@ -68,7 +68,7 @@ const FadeCarousel = () => {
       heading: "Our app's got everything you need to travel",
       paragraph:
         "Live notifications, departure and arrival platforms, and updated departure times - it's all there, baby.",
-      buttonText: "Download the app, Download the ",
+      buttonText: "Download the app",
       buttonIcon: <Smartphone />,
     },
   ];
@@ -91,9 +91,8 @@ const FadeCarousel = () => {
     >
       <Swiper
         modules={[Navigation, Pagination, EffectFade, Autoplay]}
-        
         effect="fade"
-        fadeEffect={{ crossFade: true, }}
+        fadeEffect={{ crossFade: true }}
         speed={500}
         loop={true}
         autoplay={{

@@ -160,7 +160,9 @@
 .hero-image{
   mask-image: url('/bg.svg');
 }
-
+.hero{
+  background-image: url('/hero.png');
+}
 .bullet {
   @apply size-3 bg-mint-dark rounded-full;
 }

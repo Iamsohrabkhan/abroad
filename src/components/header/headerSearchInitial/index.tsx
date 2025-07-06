@@ -14,15 +14,19 @@ const HeaderSearch = () => {
   const container = useRef<HTMLDivElement>(null);
   const { heroSearchBarActive } = useAppContext();
 
-  const [activeDialog, setActiveDialog] = useState<boolean>(false);
-
+  const {
+    activeDialogHeader,
+    activeDialogHeaderPill,
+    setActiveDialogHeader,
+    setActiveDialogHeaderPill,
+  } = useAppContext();
   const fromInputRef = useRef<HTMLInputElement>(null);
   const toInputRef = useRef<HTMLInputElement>(null);
   const { finalHeaderSearchActive, setFinalHeaderSearchActive } =
     useAppContext();
 
   useClickOutside(container, () => {
-    setActiveDialog(false);
+    setActiveDialogHeader(false);
   });
   // const fromRef = useRef<HTMLDivElement>(null);
   const [toRef, { width }] = useMeasure();
@@ -34,18 +38,27 @@ const HeaderSearch = () => {
           className="relative hidden lg:block z-[999]"
           layoutId="search"
           onClick={() => {
-            setActiveDialog(false);
             setFinalHeaderSearchActive(true);
-            console.log("initial nav clicked");
+            setTimeout(() => {
+              setActiveDialogHeader(true);
+            }, 500);
           }}
         >
           <motion.div
             className={`lg:rounded-full  lg:max-w-none flex lg:flex-row flex-col duration-300 -space-x-2 transition-all ease-out [&_input]:cursor-pointer ${
-              !activeDialog ? "bg-white" : "bg-accent"
+              activeDialogHeader ? "bg-white" : "bg-accent"
             } ${heroSearchBarActive && "w-64"}`}
             layout
           >
-            <div ref={toRef} className="flex relative " onClick={() => {}}>
+            <div
+              ref={toRef}
+              className="flex relative "
+              onClick={() => {
+                setTimeout(() => {
+                  setActiveDialogHeaderPill(1);
+                }, 500);
+              }}
+            >
               <motion.div
                 className="from py-3.5 pl-8 pr-0 2xl:pr-4 lg:rounded-full hover:bg-[#DDDDDD]  space-y-1 cursor-pointer relative isolate "
                 layout
@@ -72,7 +85,14 @@ const HeaderSearch = () => {
                 ></input>
               </motion.div>
             </div>
-            <div className="flex">
+            <div
+              className="flex "
+              onClick={() => {
+                setTimeout(() => {
+                  setActiveDialogHeaderPill(3);
+                }, 500);
+              }}
+            >
               <div className="desparture py-3.5 pl-8 pr-4 2xl:pr-16 rounded-full hover:bg-[#DDDDDD] cursor-pointer space-y-1 relative">
                 <h3 className="text-sm relative z-50 ">Add Date</h3>
                 <h3 className="text-sm text-black/50 relative z-50 font-normal mt-1.5">
@@ -80,7 +100,14 @@ const HeaderSearch = () => {
                 </h3>
               </div>
             </div>
-            <div className="return flex justify-between items-center pl-6 pr-3 gap-5 py-3.5  rounded-full hover:bg-[#DDDDDD] cursor-pointer relative">
+            <div
+              className="return flex justify-between items-center pl-6 pr-3 gap-5 py-3.5  rounded-full hover:bg-[#DDDDDD] cursor-pointer relative "
+              onClick={() => {
+                setTimeout(() => {
+                  setActiveDialogHeaderPill(5);
+                }, 500);
+              }}
+            >
               <div className="  space-y-1">
                 <h3 className="text-sm relative z-20">Travellers</h3>
                 <h3 className="text-sm text-black/50 outline-none border-none relative z-20 font-normal">
@@ -89,14 +116,14 @@ const HeaderSearch = () => {
               </div>
               <div className="w-24 2xl:w-32 flex justify-end items-center relative z-20">
                 <div
-                  className={`h-12   rounded-full flex justify-center items-center transition-all duration-300 ease-in-out ${
-                    activeDialog
+                  className={`h-12 rounded-full flex justify-center items-center transition-all duration-300 ease-in-out ${
+                    false
                       ? "w-24 2xl:w-32 gap-3 bg-[#279678] border-[3px] border-[#25D1A3]"
                       : "w-12 bg-[#25D1A34D]"
                   }`}
                 >
                   <SearchIcon className="stroke-white size-4 " />
-                  {activeDialog && (
+                  {false && (
                     <motion.h6
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}

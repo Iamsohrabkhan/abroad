@@ -21,7 +21,7 @@ const Hero = () => {
   }, [isInView]);
 
   return (
-    <section className=" relative mb-18 min-h-screen">
+    <section className=" relative mb-18 min-h-screen ">
       <svg width="0" height="0" style={{ position: "absolute" }}>
         <defs>
           <clipPath id="myClipPath" clipPathUnits="objectBoundingBox">
@@ -29,13 +29,14 @@ const Hero = () => {
           </clipPath>
         </defs>
       </svg>
+      <div className="absolute size-full hero bg-no-repeat bg-cover bg-center [clip-path:url(#myClipPath)] [-webkit-clip-path:url(#myClipPath)] -z-10" />
 
-      <Image
+      {/* <Image
         fill
         src="/hero.png"
         alt="hero"
         className="hero-image object-center object-cover size-full lg:block hidden [clip-path:url(#myClipPath)] [-webkit-clip-path:url(#myClipPath)]"
-      />
+      /> */}
       <Image
         fill
         src="/hero.png"

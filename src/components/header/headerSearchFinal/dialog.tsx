@@ -54,12 +54,18 @@ const Dialog = ({
                   : null,
             } as React.CSSProperties
           }
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{
             scale: {
               duration: 0.3,
               ease: "circOut",
+              delay: 0.5,
+            },
+            opacity: {
+              duration: 0.3,
+              ease: "easeOut",
+              delay: 0.5,
             },
           }}
         >
