@@ -12,7 +12,7 @@ import {
 import Counter from "../../search/travellar/counter";
 const ThirdRow = () => {
   return (
-    <div className="bg-white w-full max-w-72 rounded-full p-4 flex items-center justify-between gap-4 border-1 shadow border-[#DFE2E6]">
+    <div className="bg-white w-full max-w-72 rounded-full p-4 flex items-center justify-between gap-4 border-1 shadow border-[#DFE2E6] divide-x-2 divide-accent">
       <Drawer>
         <DrawerTrigger className="w-full">
           <div className="text-sm  w-full  text-start ">

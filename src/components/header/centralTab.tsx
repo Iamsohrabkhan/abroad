@@ -49,9 +49,7 @@ const CentralTab = () => {
 
   return (
     <motion.div
-      // initial={{ y: firstTimeLoad ? "-24px" : "calc(-100% - 24px)" }}
-      // animate={{ y: "-24px" }}
-      // exit={{ y: "calc(-100% - 24px)" }}
+    
       variants={variants(firstTimeLoad)}
       animate={control}
       style={{ y: "-24px" }}

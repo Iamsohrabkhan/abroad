@@ -4,12 +4,20 @@ import BankIcon from "./bankicon";
 import SocialLink from "./sociallink";
 import FooterLinks from "./footerLinks";
 import { FooterLogo } from "./footerLogo";
+import ArrowUp from "@/icons/arrowUp";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <div className="mt-24">
       {/* Footer */}
       <footer className="relative text-white">
+        <ArrowUp
+          className="absolute right-2 top-3.5 cursor-pointer -translate-y-1/2 h-24"
+          onClick={scrollToTop}
+        />
         <Image
           src="/footer.jpg"
           fill
@@ -43,7 +51,7 @@ const Footer = () => {
         </div>
       </footer>
     </div>
-  )
+  );
 };
 
-export default Footer
+export default Footer;

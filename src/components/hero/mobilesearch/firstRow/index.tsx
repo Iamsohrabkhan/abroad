@@ -10,11 +10,11 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import Location from "@/icons/loaction";
-import { LocationEdit, LocationEditIcon } from "lucide-react";
+import { ArrowLeftRight, LocationEdit, LocationEditIcon } from "lucide-react";
 const FirstRow = () => {
   return (
     <div className="shrink-0 grow-0 basis-full w-full flex justify-center items-center ">
-      <div className="bg-white w-full max-w-72 rounded-full p-4 flex items-center justify-between gap-4 border-1 shadow border-[#DFE2E6]">
+      <div className="bg-white w-full max-w-72 rounded-full p-4 flex items-center justify-between gap-4 border-1 shadow border-[#DFE2E6] relative">
         <Drawer>
           <DrawerTrigger className="w-full">
             <div className="text-sm  w-full  text-start ">
@@ -59,11 +59,17 @@ const FirstRow = () => {
           </DrawerContent>
         </Drawer>
 
+        <div
+          className="absolute bg-white left-1/2 top-1/2 -translate-y-1/2 -translate-x-full shadow-xl p-2 rounded-full z-50 cursor-pointer"
+        >
+          <ArrowLeftRight className="size-5" />
+        </div>
+
         <Drawer>
           <DrawerTrigger className="w-full">
             <div className="text-sm w-full text-start">
-              <h6 className="font-[400] text-sm">From</h6>
-              <p className="text-black/50 text-sm">Where from?</p>
+              <h6 className="font-[400] text-sm">Where</h6>
+              <p className="text-black/50 text-sm">Where to?</p>
             </div>
           </DrawerTrigger>
           <DrawerContent>

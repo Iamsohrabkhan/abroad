@@ -93,8 +93,6 @@ const Search = () => {
             <ArrowLeftRight className="size-5" />
           </div>
           <motion.div
-            // layout
-            // layoutDependency={rowReverse}
             transition={{ duration: 0.6 }}
             onClick={() => {
               setActiveDialogPill(2);

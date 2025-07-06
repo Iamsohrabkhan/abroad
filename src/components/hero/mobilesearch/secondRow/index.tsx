@@ -17,11 +17,15 @@ import Location from "@/icons/loaction";
 import { useState } from "react";
 
 const SecondRow = () => {
-  const [departureDate, setDepartureDate] = React.useState<Date | undefined>(new Date());
-  const [returnDate, setReturnDate] = React.useState<Date | undefined>(new Date());
+  const [departureDate, setDepartureDate] = React.useState<Date | undefined>(
+    new Date()
+  );
+  const [returnDate, setReturnDate] = React.useState<Date | undefined>(
+    new Date()
+  );
   return (
     <div className="shrink-0 grow-0 basis-full w-full flex justify-center items-center ">
-      <div className="bg-white w-full max-w-72 rounded-full p-4 flex items-center justify-between gap-4 border-1 shadow border-[#DFE2E6]">
+      <div className="bg-white w-full max-w-72 rounded-full p-4 flex items-center justify-between gap-4 border-1 shadow border-[#DFE2E6] relative divide-x-2 divide-accent">
         <Drawer>
           <DrawerTrigger className="w-full">
             <div className="text-sm  w-full  text-start ">
@@ -44,8 +48,7 @@ const SecondRow = () => {
             </div>
           </DrawerContent>
         </Drawer>
-        <Separator orientation="vertical" className="h-6 w-1 bg-[#E2E2E2]" />
-
+     
         <Drawer>
           <DrawerTrigger className="w-full">
             <div className="text-sm  w-full  text-start ">

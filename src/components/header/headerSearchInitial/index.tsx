@@ -45,9 +45,7 @@ const HeaderSearch = () => {
           }}
         >
           <motion.div
-            className={`lg:rounded-full  lg:max-w-none flex lg:flex-row flex-col duration-300 -space-x-2 transition-all ease-out [&_input]:cursor-pointer ${
-              activeDialogHeader ? "bg-white" : "bg-accent"
-            } ${heroSearchBarActive && "w-64"}`}
+            className={`lg:rounded-full  lg:max-w-none flex lg:flex-row flex-col duration-300 -space-x-2 transition-all ease-out [&_input]:cursor-pointer bg-white ${heroSearchBarActive && "max-w-64"}`}
             layout
           >
             <div
