@@ -18,7 +18,7 @@ export function Prices() {
   const [position, setPosition] = React.useState("bottom")
 
   return (
-    <DropdownMenu >
+    <DropdownMenu  >
       <DropdownMenuTrigger asChild>
         <button className="min-w-36 min-h-12 rounded-full cursor-pointer border border-accent inline-flex justify-center items-center">All Prices <ChevronDownIcon /></button>
       </DropdownMenuTrigger >

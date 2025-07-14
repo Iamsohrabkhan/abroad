@@ -195,12 +195,14 @@ const FadeCarousel = () => {
                   src={item.smallimage}
                   alt="carousel image"
                   fill
+                  sizes="100vw"
                   className="size-full object-top object-contain md:hidden"
                 />
                 <Image
                   src={item.largeimage}
                   alt="carousel image"
                   fill
+                  sizes="100vw"
                   className="size-full object-bottom object-contain hidden md:block"
                 />
               </div>

@@ -18,7 +18,7 @@ export const Calender = ({
       <span>
         <Calendar />
       </span>
-      <span>Other days from 19$</span>
+      <span className="text-xs lg:text-sm">Other days from 19$</span>
       <span>
         <ChevronDown className={`transition-transform duration-300 ${swiperActive ? "rotate-180" : ""}`} />
       </span>

@@ -68,6 +68,7 @@ const PopularTrips: React.FC = () => {
               alt={`${trip.from} to ${trip.to}`}
               className="object-center object-cover rounded-md"
               fill
+              sizes="100vw"
             />
             <h6 className="absolute left-2 bottom-2 text-white inline-flex justify-center items-center gap-2 z-20">
               {trip.from} <MoveRight /> {trip.to}

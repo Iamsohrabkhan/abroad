@@ -22,12 +22,14 @@ const Footer = () => {
           src="/footer.jpg"
           fill
           alt="footer image"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-center object-cover -z-10"
         />
         <Image
           src="/noise.png"
           fill
           alt="footer image"
+          sizes="100vw"
           className="object-center object-cover -z-[9] opacity-20"
         />
         <div className="size-full absolute inset-0 bg-[#2c2c2c9a]  backdrop-blur-lg -z-[8] " />

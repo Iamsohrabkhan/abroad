@@ -8,11 +8,11 @@ import Train from "./train";
 export const Banner = () => {
   const ref = useRef(null);
   return (
-    <div className="banner  font-medium min-h-32 flex justify-between pl-32 pr-3 items-center relative" ref={ref}>
+    <div className="banner  font-medium min-h-32 flex justify-between pl-16 sm:pl-24 lg:pl-32 pr-3 items-start md:items-center gap-4 relative flex-col md:flex-row py-6" ref={ref}>
       <Train ref={ref} />
 
       <div>
-        <h5 className="box text-sm">Discover on board services</h5>
+        <h5 className="box text-sm mb-3">Discover on board services</h5>
         <div className="bg-white p-3 rounded-4xl inline-flex justify-center items-center gap-4">
           <Frecciarossa />
           <Tsv />

@@ -29,17 +29,17 @@ export function TableDemo() {
   };
 
   return (
-    <Table className="mt-6 w-80">
+    <Table className="mt-6 w-full overflow-clip">
       <TableHeader>
         <TableRow>
           <TableHead className="min-w-[100px] inline-flex gap-2 justify-center items-center">
             <Calendar /> Thu. Jul . 10 , 2025
           </TableHead>
-          <TableHead className="invisible hidden lg:inline-block">
-            Logo
-          </TableHead>
+          <TableHead className="invisible absolute lg:relative">Logo</TableHead>
           <TableHead>Standard</TableHead>
-          <TableHead className="text-right">1st Class</TableHead>
+          <TableHead className="text-right hidden md:block">
+            1st Class
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -111,7 +111,7 @@ export function TableDemo() {
                       type: "total",
                     });
                   }}
-                  className={`p-2 inline-block cursor-pointer ${
+                  className={`p-1 md:p-2 inline-block cursor-pointer ${
                     selectedPrice?.invoice === invoice.invoice &&
                     selectedPrice?.type === "total"
                       ? "bg-blue-900 text-white"
@@ -120,15 +120,35 @@ export function TableDemo() {
                 >
                   {invoice.totalAmount}
                 </span>
+                {/* first class price for mobile visible */}
+                <span
+                  className={`md:hidden flex justify-center items-center w-fit p-1  ${
+                    selectedPrice?.invoice === invoice.invoice &&
+                    selectedPrice?.type === "firstClass"
+                      ? "bg-blue-900 text-white"
+                      : ""
+                  }`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPrice({
+                      invoice: invoice.invoice,
+                      type: "firstClass",
+                    });
+                  }}
+                >
+                  1st {invoice.firstClass}
+                </span>
                 {!invoice.totalAmount && !invoice.firstClass && (
-                  <div className="absolute right-0 translate-x-1/2">
+                  <div className="md:absolute p-2  md:right-0 md:translate-x-1/2">
                     Not available
                   </div>
                 )}
+
+                <div className="absolute bottom-8 left-2 md:hidden">{invoice?.icon}</div>
               </TableCell>
 
               {/* First class price */}
-              <TableCell className="py-6 text-right align-top">
+              <TableCell className="py-6 text-right align-top invisible absolute md:visible md:relative">
                 <div
                   onClick={(e) => {
                     e.stopPropagation();

@@ -8,7 +8,7 @@ export const ContinueButton = () => {
       <div className="inline-flex flex-col gap-3 lg:gap-1">
         <p>Outbound</p>
         <p>$55.00</p>
-        <p className="bg-yellow-400 text-black px-1 py-0.5 rounded-md">
+        <p className="bg-yellow-400 text-black px-1 py-0.5 rounded-md w-fit lg:w-auto">
           Cheapest
         </p>
         <p>1 Adult</p>

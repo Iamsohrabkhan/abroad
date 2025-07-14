@@ -6,7 +6,7 @@ import { Banner } from "./banner";
 const Grid1 = () => {
   return (
     <div className="mb-12">
-      {/* <Banner /> */}
+      <Banner />
       <button className="w-full border border-accent cursor-pointer bg-white flex justify-center items-center gap-3 py-2 mt-6">
         <ChevronUp /> Earlier
       </button>

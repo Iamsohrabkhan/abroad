@@ -28,7 +28,7 @@ const trainFeatures = [
 export const TrainSheduleCard = () => {
   const [active, setActive] = useState(false);
   return (
-    <div className="bg-gray-50/50 ">
+    <div className="bg-gray-50/50">
       <motion.div
         onClick={() => {
           setActive(!active);
@@ -46,12 +46,29 @@ export const TrainSheduleCard = () => {
           <span className="font-bold">Paris Gare de Lyon</span>
         </div>
         <div className=" relative flex flex-col gap-4 pl-12 mt-4 cursor-pointer">
-          <div className=" tube bg-accent w-1 h-16 translate-x-full rounded-md absolute left-0 top-0 bottom-0 before:content-['_'] before:size-3 before:rounded-full before:bg-accent-foreground before:absolute before:bottom-0 before:left-1/2 before:translate-y-1/2 before:-translate-x-1/2" />
-          <div className="inline-flex gap-6">
+          <div className=" tube bg-accent w-1 h-full translate-x-full rounded-md absolute left-0 top-0 bottom-0 before:content-['_'] before:size-3 before:rounded-full before:bg-accent-foreground before:absolute before:bottom-0 before:left-1/2 before:translate-y-1/2 before:-translate-x-1/2" />
+          <div className="inline-flex gap-6 ">
             <div className="time">1h:56m</div>
             <div className="time">0 changes</div>
             <div className="logo">logo</div>
-            <p className="bg-white p-1 rounded-md text-sm">
+            <div className="md:inline-flex gap-1 hidden">
+              <p className="bg-white p-2 rounded-sm text-xs lg:text-shadow-sm">
+                2 services available
+              </p>
+              <div className="flex justify-center items-center">
+                <ChevronDown
+                  className={`transition-transform duration-300 ${
+                    active ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="inline-flex gap-9">
+            <span>18:56</span> <span>Lyon Part-Dieu</span>
+          </div>
+          <div className="inline-flex gap-1 md:hidden">
+            <p className="bg-white p-2 rounded-sm text-xs lg:text-shadow-sm">
               2 services available
             </p>
             <div className="flex justify-center items-center">
@@ -61,9 +78,6 @@ export const TrainSheduleCard = () => {
                 }`}
               />
             </div>
-          </div>
-          <div className="inline-flex gap-9">
-            <span>18:56</span> <span>Lyon Part-Dieu</span>
           </div>
         </div>
       </motion.div>

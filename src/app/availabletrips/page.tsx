@@ -19,7 +19,6 @@ import { MobileSearch } from "@/components/hero/mobilesearch";
 const Page = () => {
   const searchHelperRef = useRef<HTMLDivElement>(null);
   const { setHeroSearchBarActive, heroSearchBarActive } = useAppContext();
-  console.log("🚀 ~ Page ~ heroSearchBarActive:", heroSearchBarActive);
   const [swiperActive, setSwiperActive] = useState<boolean>(true);
 
   const { scrollY } = useScroll();
@@ -43,12 +42,12 @@ const Page = () => {
 
       <Container className="space-y-6">
         <h1 className="text-center whitespace-pre-wrap">There we go!</h1>
-        {/* <Tabs swiperActive={swiperActive} setSwiperActive={setSwiperActive} /> */}
+        <Tabs swiperActive={swiperActive} setSwiperActive={setSwiperActive} />
 
-        {/* <DateSlider
+        <DateSlider
           swiperActive={swiperActive}
           setSwiperActive={setSwiperActive}
-        /> */}
+        />
         <div className="grid grid-cols-1 lg:grid-cols-2  gap-12">
           <Grid1 />
           <Grid2 />

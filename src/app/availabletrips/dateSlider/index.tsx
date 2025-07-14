@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 import { SwiperWrapper } from "./SwiperWrapper";
 import { Button } from "@/components/ui/button";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import { motion } from "motion/react"; // You had `motion/react`, corrected to `framer-motion`
+import { motion } from "motion/react";
 
 const slidesData = [
   { id: 1, date: "Thu, July 3", price: "$13" },
@@ -65,7 +65,21 @@ const DateSlider = ({
 
       {/* Swiper Slider */}
       <Swiper
-        slidesPerView={7}
+        slidesPerView={2}
+        breakpoints={{
+          720: {
+            slidesPerView: 4,
+          },
+          1280: {
+            slidesPerView: 6,
+          },
+          1440: {
+            slidesPerView: 7,
+          },
+          1920: {
+            slidesPerView: 8,
+          },
+        }}
         ref={swiperRef}
         modules={[Navigation]}
         navigation={{
