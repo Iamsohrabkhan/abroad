@@ -1,6 +1,8 @@
 "use client";
 
+import Footer from "@/components/footer";
 import { AppProvider } from "@/components/store/AppContext";
+import { FromValueProvider } from "@/components/store/formValueContext";
 import { MotionConfig } from "motion/react";
 import { useEffect } from "react";
 
@@ -17,9 +19,16 @@ export default function Template({ children }: { children: React.ReactNode }) {
   }, []);
   return (
     <AppProvider>
+      
+      <FromValueProvider>
+
       <MotionConfig transition={{ layout: { duration: 0.6, ease: "circOut" } }}>
-        <div>{children}</div>
+        <div>{children}
+
+          <Footer/>
+        </div>
       </MotionConfig>
+      </FromValueProvider>
     </AppProvider>
   );
 }

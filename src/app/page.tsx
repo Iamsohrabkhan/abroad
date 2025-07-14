@@ -18,10 +18,8 @@ import { useState } from "react";
 export default function Home() {
   return (
     <>
-      <FromValueProvider>
         <Header />
         <Hero />
-      </FromValueProvider>
       <Marquee />
       <Container>
         <Slider />
@@ -35,7 +33,7 @@ export default function Home() {
         <Recomendeddestinations />
         <ChooseUs />
       </Container>
-      <Footer />
+
     </>
   );
 }

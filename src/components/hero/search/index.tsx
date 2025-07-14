@@ -62,7 +62,7 @@ const Search = () => {
         >
           <motion.div
             transition={{ duration: 0.62 }}
-            className="from py-3.5 pl-8 pr-0 2xl:pr-16 lg:rounded-full hover:bg-[#DDDDDD]  space-y-1 cursor-pointer relative isolate "
+            className="from py-3.5 pl-8 pr-0 2xl:pr-16 lg:rounded-full hover:bg-[#DDDDDD]  space-y-1 cursor-pointer relative isolate"
             ref={fromRef}
             onClick={() => {
               setActiveDialogPill(1);
@@ -98,7 +98,7 @@ const Search = () => {
               setActiveDialogPill(2);
               toInputRef?.current?.focus();
             }}
-            className="to py-3.5 pl-8 pr-0 2xl:pr-16 rounded-full cursor-pointer hover:bg-[#DDDDDD]  space-y-1 relative"
+            className="to py-3.5 pl-8 pr-0 2xl:pr-16 rounded-full cursor-pointer hover:bg-[#DDDDDD] space-y-1 relative"
           >
             {activeDialogPill === 2 && <Pill />}
             <h3 className="text-sm relative z-20">To</h3>

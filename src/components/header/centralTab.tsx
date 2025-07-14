@@ -18,8 +18,6 @@ const CentralTab = () => {
     finalHeaderSearchActive,
     setFinalHeaderSearchActive,
   } = useAppContext();
-  console.log("finalheadersearchactive", finalHeaderSearchActive);
-  console.log("heroserachbarActive", heroSearchBarActive);
 
   const [scope, animate] = useAnimate();
   const control = useAnimationControls();
