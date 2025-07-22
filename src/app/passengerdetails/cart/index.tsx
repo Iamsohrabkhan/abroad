@@ -11,10 +11,11 @@ import {
   Trash2,
 } from "lucide-react";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
-const Cart = () => {
+const Cart = ({ className }: { className: string }) => {
   return (
-    <div className="col-span-7">
+    <div className={twMerge("", className)}>
       <h4>Cart</h4>
       <div className="flex gap-2">
         <Checkbox className="size-5 mt-6" icon />

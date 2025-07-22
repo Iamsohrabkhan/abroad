@@ -5,9 +5,9 @@ import Grid2 from "./grid2/index.";
 
 const Grid = () => {
   return (
-    <Container className="grid grid-cols-12 gap-6 ">
-      <Row1 className="col-span-8" />
-      <Grid2 className="col-span-4 " />
+    <Container className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 ">
+      <Row1 className="lg:col-span-7 xl:col-span-8" />
+      <Grid2 className="lg:col-span-5 xl:col-span-4" />
     </Container>
   );
 };
