@@ -11,10 +11,7 @@ import Recomendeddestinations from "@/components/recomendeddestinations";
 import Review from "@/components/review";
 import Slider from "@/components/slider";
 import Sponsored from "@/components/sponsored";
-import { FromValueProvider } from "@/components/store/formValueContext";
 import { Container } from "@/components/ui/container";
-import { MotionConfig } from "motion/react";
-import { useState } from "react";
 export default function Home() {
   return (
     <>

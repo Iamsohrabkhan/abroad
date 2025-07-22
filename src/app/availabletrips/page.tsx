@@ -1,17 +1,13 @@
 "use client";
 import { Header } from "@/components/header";
 import Search from "@/components/hero/search";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { useInView, useMotionValueEvent, useScroll } from "motion/react";
+import { useMotionValueEvent, useScroll } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 import Tabs from "./tabs";
 import DateSlider from "./dateSlider";
-import { ChevronRight, ChevronUp } from "lucide-react";
 import Grid1 from "./grid/grid1";
 import Grid2 from "./grid/grid2";
-import { TrainSheduleCard } from "./grid/grid2/trainsheduleCard";
-import SearchIcon from "@/icons/searchIcon";
 import Cta from "./cta";
 import { useAppContext } from "@/components/store/AppContext";
 import { MobileSearch } from "@/components/hero/mobilesearch";
