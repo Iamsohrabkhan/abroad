@@ -30,7 +30,7 @@ const Page = () => {
             <User />
             <h5 className="uppercase">Balendine pelagie seni epse yapo</h5>
           </div>
-          <div className="grid  grid-cols-2 lg:grid-cols-3 lg:items-center bg-gray-200 py-4 px-6 rounded-md gap-6">
+          <div className="grid  grid-cols-2 lg:grid-cols-3 lg:items-center bg-gray-100 py-4 px-6 rounded-md gap-6">
             <div className="flex justify-between items-center ">
               <div className="flex gap-2 ">
                 <ArrowRight />
@@ -58,7 +58,7 @@ const Page = () => {
           </button>
         </div>
         <div className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative">
-          <svg
+          {/* <svg
             className="absolute w-4 h-4 top-6 left-0.5 translate-y-1/2 -translate-x-full"
             viewBox="0 0 100 100"
           >
@@ -68,10 +68,10 @@ const Page = () => {
               stroke="black"
               strokeWidth="6"
             />
-          </svg>
+          </svg> */}
 
           <h4>Your tickets</h4>
-          <div className="p-4 border border-accent flex justify-between items-center">
+          <div className="p-4 border rounded-md border-accent flex justify-between items-center">
             <Smartphone />
             <div className="flex flex-col gap-1">
               <button className="font-bold">etickets</button>
@@ -81,7 +81,7 @@ const Page = () => {
             <Ouigo />
           </div>
           <p>Passenger need valid form of ID</p>
-          <button className="bg-gray-200 p-3 w-full flex justify-start">
+          <button className="bg-gray-100 p-3 w-full flex justify-start rounded-md">
             Booking reference: &nbsp;{" "}
             <strong className="uppercase"> TPRUZu</strong>
           </button>

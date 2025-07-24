@@ -16,7 +16,7 @@ import Counter from "./counter";
 
 const Card3 = () => {
   return (
-    <div className="card p-4 border border-[#d3d3d3] rounded-md">
+    <div className="card p-4 border border-[#d3d3d3] rounded-md bg-white">
       <div className="flex justify-between items-center">
         <h4>
           Lyon <span className="font-light">to</span> Paris

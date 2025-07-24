@@ -3,7 +3,7 @@ import { Lock } from "lucide-react";
 
 const Payment = () => {
   return (
-    <div className="card mt-6 px-6 py-6 shadow outline-accent space-y-6 ">
+    <div className="card mt-6 px-6 py-6 shadow outline-accent space-y-6 bg-white rounded-md">
       <div className="flex justify-between items-center">
         <h4 className="">
           Total to pay <Lock className="inline-block" />

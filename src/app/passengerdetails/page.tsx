@@ -44,15 +44,17 @@ const Page = () => {
       <Container className="space-y-6">
         <h1 className="text-center whitespace-pre-wrap">There we go!</h1>
       </Container>{" "}
-      <Grid />
-      <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
-        <Cart className="lg:col-span-7" />
-        <div className="lg:col-span-5">
-          <BestPrice />
-          <Payment />
-        </div>
-      </Container>
-      <Cta />
+      <div className="bg-[#F8FAFA] py-12 mt-6">
+        <Grid />
+        <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+          <Cart className="lg:col-span-7" />
+          <div className="lg:col-span-5">
+            <BestPrice />
+            <Payment />
+          </div>
+        </Container>
+        <Cta />
+      </div>
     </section>
   );
 };

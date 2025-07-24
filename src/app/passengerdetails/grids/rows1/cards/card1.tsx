@@ -7,7 +7,7 @@ import { Switch } from "@/components/ui/switch";
 
 const Card1 = () => {
   return (
-    <div className="card p-4 border border-[#d3d3d3] rounded-md">
+    <div className="card p-4 border border-[#d3d3d3] bg-white rounded-md">
       <div>
         <h4>Adult</h4>
         <p>Ages 26 - 59</p>

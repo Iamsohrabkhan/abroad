@@ -73,7 +73,20 @@ const Grid2 = ({ className }: { className?: string }) => {
           <div className="flex justify-between items-center mt-6">
             <h4>Total</h4> <h4>$25.00</h4>
           </div>
-          <button className="text-3xl bg-green-700 flex flex-col items-center justify-center w-full py-2 text-white mt-6 rounded-md">
+          <button
+            className="text-3xl bg-green-700 flex flex-col items-center justify-center w-full py-2 text-white mt-6 rounded-md"
+            onClick={() => {
+              const element = document.getElementById("pay-section");
+              if (element) {
+                const offsetTop =
+                  element.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                  top: offsetTop - 100, // Leave 100px space on top
+                  behavior: "smooth",
+                });
+              }
+            }}
+          >
             <span>Continue</span>{" "}
             <span className="text-lg">to flexibility</span>
           </button>

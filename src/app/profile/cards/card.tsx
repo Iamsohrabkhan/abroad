@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className={twMerge("card p-4 space-y-12 ", className)}>
       <div className="flex gap-2 items-center">
-        <div className="p-2 bg-accent rounded-md">{icon}</div>
+        <div className="p-2 bg-gray-100 rounded-md">{icon}</div>
         <CardDescription className="text-nowrap">{title}</CardDescription>
       </div>
       <div className="flex gap-2 items-center justify-between">

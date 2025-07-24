@@ -6,15 +6,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import Frecciarossa from "@/icons/Frecciarossa";
-import Ouigo from "@/icons/ouigo";
-import Tsv from "@/icons/tsv";
 import { Separator } from "@radix-ui/react-separator";
 import { ArrowRight, Cable, Calendar, Heart, Wifi, Wine } from "lucide-react";
 import { useState } from "react";
 import { invoicesData } from "./data";
 
-export function TableDemo() {
+export function Matrix() {
   const [selectedPrice, setSelectedPrice] = useState<{
     invoice: string;
     type: "total" | "firstClass";

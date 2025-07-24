@@ -5,7 +5,7 @@ import React from "react";
 
 const Card5 = () => {
   return (
-    <div className="card p-4 border border-[#d3d3d3] rounded-md space-y-3">
+    <div className="card p-4 border border-[#d3d3d3] rounded-md space-y-3 bg-white">
       <h4>No added cover</h4>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, eaque?

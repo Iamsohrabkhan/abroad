@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export const ContinueButton = () => {
@@ -13,11 +14,13 @@ export const ContinueButton = () => {
         </p>
         <p>1 Adult</p>
       </div>
-      <button className="bg-green-600 text-white text-start p-3 lg:w-auto rounded-md w-fit lg:p-3 inline-flex lg:flex lg:justify-center items-center gap-6 lg:gap-12">
-        <div>
-            <span className="font-semibold text-xl">Continue</span> <br />{" "}
-            <span className="text-sm">to next Step</span>
-        </div>
+      <button className="bg-green-600 text-white text-start p-3 lg:w-auto rounded-md w-fit lg:p-3 inline-flex lg:flex lg:justify-center items-center gap-6 lg:gap-12"  >
+        <Link href="/passengerdetails">
+          <div>
+              <span className="font-semibold text-xl">Continue</span> <br />{" "}
+              <span className="text-sm">to next Step</span>
+          </div>
+        </Link>
         <ChevronRight/>
       </button>
     </div>

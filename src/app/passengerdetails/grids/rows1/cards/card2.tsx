@@ -9,7 +9,7 @@ import { PhoneInput } from "@/components/ui/phone-input";
 
 const Card2 = () => {
   return (
-    <div className="card p-4 border border-[#d3d3d3] rounded-md">
+    <div className="card p-4 border border-[#d3d3d3] rounded-md bg-white">
       <div>
         <h4>Contact Details</h4>
       </div>

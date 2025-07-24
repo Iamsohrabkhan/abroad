@@ -15,12 +15,12 @@ import { twMerge } from "tailwind-merge";
 
 const Cart = ({ className }: { className: string }) => {
   return (
-    <div className={twMerge("", className)}>
+    <div className={twMerge("", className)} id="pay-section">
       <h4>Cart</h4>
       <div className="flex gap-2">
         <Checkbox className="size-5 mt-6" icon />
         <div>
-          <div className="card p-4 border border-[#d3d3d3] rounded-md">
+          <div className="card p-8 border border-[#d3d3d3] bg-white rounded-md">
             <div className="flex gap-6 justify-between ">
               <h3 className="basis-full">
                 Lyon Bus station to Paris Bercy Seine
@@ -62,7 +62,7 @@ const Cart = ({ className }: { className: string }) => {
                 Price and seat locked in Cart untill{" "}
                 <strong>12:38pm today</strong>
               </p>
-              <button className="py-2 px-4 border border-[#dedede] cursor-pointer inline-flex justify-center items-center gap-2">
+              <button className="py-2 px-4 border border-[#dedede] cursor-pointer inline-flex justify-center items-center gap-2 rounded-md">
                 <Trash2 />
                 Remove
               </button>
