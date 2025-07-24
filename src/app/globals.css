@@ -156,6 +156,9 @@
   h6 {
     @apply text-[1rem] font-medium leading-normal;
   }
+  button {
+    @apply cursor-pointer
+  }
 }
 .hero-image{
   mask-image: url('/bg.svg');
