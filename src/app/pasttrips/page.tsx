@@ -57,19 +57,10 @@ const Page = () => {
             Manage booking
           </button>
         </div>
-        <div className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative">
-          {/* <svg
-            className="absolute w-4 h-4 top-6 left-0.5 translate-y-1/2 -translate-x-full"
-            viewBox="0 0 100 100"
-          >
-            <polygon
-              points="100,0 100,100 0,50"
-              fill="white"
-              stroke="black"
-              strokeWidth="6"
-            />
-          </svg> */}
+        <div
+          className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative before:content-[''] before:absolute before:top-[16px] before:left-[-21px] before:border-[11px] before:border-transparent before:border-r-accent after:content-[''] after:absolute after:top-[17px] after:left-[-19px] after:shadow-xl after:border-[10px] after:border-transparent after:border-r-white"
 
+        >
           <h4>Your tickets</h4>
           <div className="p-4 border rounded-md border-accent flex justify-between items-center">
             <Smartphone />
