@@ -88,18 +88,24 @@ const monthlyData: Record<string, { name: string; value: number }[]> = {
   ],
 };
 
-
 const monthList = ["august", "september", "october", "november", "december"];
 
 export default function CustomMonthChart() {
   const [selectedMonth, setSelectedMonth] = useState("august");
 
- const [chartData, setChartData] = useState(monthlyData["august"]);
+  const [chartData, setChartData] = useState(monthlyData["august"]);
 
-useEffect(() => {
-  setChartData(monthlyData[selectedMonth]);
-}, [selectedMonth]);
+  useEffect(() => {
+    setChartData(monthlyData[selectedMonth]);
+  }, [selectedMonth]);
 
+  const dateRangeMap: Record<string, string> = {
+    august: "Aug 1 - Aug 31, 2022",
+    september: "Sep 1 - Sep 30, 2022",
+    october: "Oct 1 - Oct 31, 2022",
+    november: "Nov 1 - Nov 30, 2022",
+    december: "Dec 1 - Dec 31, 2022",
+  };
 
   return (
     <div className="w-full max-w-5xl mx-auto mt-8 px-4 ">
@@ -108,7 +114,7 @@ useEffect(() => {
           <h2 className="text-6xl">
             912,2 <sub>km</sub>
           </h2>
-          <CardDescription>aug 1 - sep 30, 2022</CardDescription>
+          <CardDescription>{dateRangeMap[selectedMonth]}</CardDescription>
         </div>
         <Select value={selectedMonth} onValueChange={setSelectedMonth}>
           <SelectTrigger className="max-w-[180px]">
