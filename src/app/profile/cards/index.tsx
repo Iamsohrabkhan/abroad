@@ -1,5 +1,5 @@
 import Card from "./card";
-"lucide-react";
+("lucide-react");
 
 const Cards = () => {
   return (
@@ -9,23 +9,23 @@ const Cards = () => {
         title="Trips driven"
         number={64}
         className=" bg-mint-light "
+        numberClassName="text-4xl"
         paragraph="Bus is your most used mode of transportation"
       />
       <Card
         title="Your longest trip"
         number={210}
         numberSub="Km"
-        className="relative before:content-['_'] before:absolute before:inset-0 before:-z-10 before:opacity-50 before:bg-[url('/CIV.png')] before:size-full before:bg-cover before:bg-center before:rounded-md "
-        numberClassName="text-7xl"
-         paragraph="Only 230km to go"
+        className="relative before:content-['_'] before:absolute before:inset-0 before:-z-10 before:opacity-50 before:bg-[url('/CIV.png')] before:size-full before:bg-cover before:bg-center before:rounded-md justify-center gap-4"
+        numberClassName="text-4xl lg:text-7xl"
+        paragraph="Only 230km to go"
       />
       <Card
-      
         title="Co2 saved"
         number={50}
         numberSub="KG"
-        className="bg-[#DEFFF7]"
-        numberClassName="text-7xl"
+        className="bg-[#DEFFF7] justify-center gap-2"
+        numberClassName=" text-3xl lg:text-7xl"
         paragraph="Approximately 240L of fuel consumption."
       />
       <Card
@@ -33,39 +33,17 @@ const Cards = () => {
         paragraph="Is your most traveled route."
         ArrowButton={true}
         className="shadow-md"
-
       />
     </div>
   );
 };
 
 export default Cards;
-const KM = () => {
-  return (
-    <svg
-      width="29"
-      height="16"
-      viewBox="0 0 29 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M0 15.6476H2.79821V11.26L4.88007 9.02142L9.96162 15.6476H13.409L6.80524 7.05148L12.9613 0.268628H9.53629L2.79821 7.79021V0.268628H0V15.6476Z"
-        fill="#1A1528"
-      />
-      <path
-        d="M22.0397 9.46913H25.8677V12.2673C24.9051 12.9613 23.6515 13.3642 22.4874 13.3642C19.6221 13.3642 17.2044 10.9018 17.2044 7.94691C17.2044 5.01439 19.6221 2.55196 22.4874 2.55196C23.9873 2.55196 25.6438 3.22354 26.6064 4.34282L28.5987 2.48481C27.1213 0.940199 24.726 0 22.4874 0C18.0775 0 14.3615 3.62648 14.3615 7.94691C14.3615 12.2673 18.0775 15.9162 22.4874 15.9162C24.726 15.9162 27.1213 14.9536 28.5987 13.409V7.1858H22.0397V9.46913Z"
-        fill="#1A1528"
-      />
-    </svg>
-  );
-};
 
 const Truck = () => {
   return (
     <svg
-      width="92"
-      height="92"
+      className="size-16 lg:size-24"
       viewBox="0 0 92 92"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

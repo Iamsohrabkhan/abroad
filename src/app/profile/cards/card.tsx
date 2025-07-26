@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       className={twMerge(
-        "card p-8 shadow-2xs flex flex-col gap-6 justify-between rounded-3xl ",
+        "card p-3 md:p-4 lg:p-8 shadow-2xs flex flex-col gap-6 justify-between rounded-3xl ",
         className
       )}
     >
@@ -38,7 +38,7 @@ const Card: React.FC<CardProps> = ({
           <>
             <div
               className={twMerge(
-                "p-2 text-[#1A1528] text-2xl font-bold rounded-md",
+                "lg:p-2 text-[#1A1528] text-2xl font-[400] rounded-md",
                 numberClassName
               )}
             >
@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({
             </div>
             {icon && <div>{icon}</div>}
             {numberSub && (
-              <div className="text-4xl font-bold">
+              <div className="text-2xl lg:text-4xl font-bold">
                 <sub>{numberSub}</sub>
               </div>
             )}
@@ -55,17 +55,23 @@ const Card: React.FC<CardProps> = ({
 
         {ArrowButton && (
           <div className=" flex flex-col gap-2">
-            <h5 className="text-[#1A1528] font-[300]]">Alexandragade 10</h5>
+            <h5 className="text-[#1A1528] font-[300] text-sm md:text-base lg:text-lg md:font-[400]">
+              Alexandragade 10
+            </h5>
             <div className="inline-flex justify-center items-center gap-2">
               <ArrowIcon />
-              <button className="bg-mint-dark py-1.5 px-2 rounded-xl text-white">Campusvej 55</button>
+              <button className="bg-mint-dark py-1 px-2 rounded-md md:rounded-xl text-white text-nowrap font-light text-xs md:text-sm lg:text-base">
+                Campusvej 55
+              </button>
             </div>
           </div>
         )}
       </div>
       <div className="flex gap-2  flex-col">
-        <h4 className="text-2xl">{title}</h4>
-        <p className="text-xs font-light text-[#404040]">{paragraph}.</p>
+        <h4 className="text-base lg:text-2xl">{title}</h4>
+        <p className="text-[10px] md:text-xs font-light text-[#404040]">
+          {paragraph}.
+        </p>
       </div>
     </div>
   );
@@ -75,8 +81,7 @@ export default Card;
 
 const ArrowIcon = () => (
   <svg
-    width="22"
-    height="23"
+    className="size-4 md:size-5 lg:size-6"
     viewBox="0 0 22 23"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

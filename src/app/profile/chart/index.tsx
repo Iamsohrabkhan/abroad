@@ -1,24 +1,7 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts";
-
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
-import { Select } from "@radix-ui/react-select";
-import {
+  Select,
   SelectContent,
   SelectGroup,
   SelectItem,
@@ -27,92 +10,152 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export const description = "A bar chart with a label";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+  Rectangle,
+  Legend,
+} from "recharts";
+import { useEffect, useState } from "react";
+import { CardDescription } from "@/components/ui/card";
 
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-];
+const monthlyData: Record<string, { name: string; value: number }[]> = {
+  august: [
+    { name: "#1", value: 12 },
+    { name: "#2", value: 18 },
+    { name: "#3", value: 9 },
+    { name: "#4", value: 14 },
+    { name: "#5", value: 22 },
+    { name: "#6", value: 17 },
+    { name: "#7", value: 8 },
+    { name: "#8", value: 11 },
+    { name: "#9", value: 13 },
+    { name: "#10", value: 19 },
+    { name: "#11", value: 15 },
+  ],
+  september: [
+    { name: "#1", value: 16 },
+    { name: "#2", value: 21 },
+    { name: "#3", value: 17 },
+    { name: "#4", value: 9 },
+    { name: "#5", value: 13 },
+    { name: "#6", value: 20 },
+    { name: "#7", value: 14 },
+    { name: "#8", value: 10 },
+    { name: "#9", value: 19 },
+    { name: "#10", value: 18 },
+  ],
+  october: [
+    { name: "#1", value: 11 },
+    { name: "#2", value: 15 },
+    { name: "#3", value: 20 },
+    { name: "#4", value: 17 },
+    { name: "#5", value: 13 },
+    { name: "#6", value: 12 },
+    { name: "#7", value: 18 },
+    { name: "#8", value: 14 },
+    { name: "#9", value: 19 },
+    { name: "#10", value: 10 },
+  ],
+  november: [
+    { name: "#1", value: 12 },
+    { name: "#2", value: 14 },
+    { name: "#3", value: 18 },
+    { name: "#4", value: 16 },
+    { name: "#5", value: 13 },
+    { name: "#6", value: 11 },
+    { name: "#7", value: 9 },
+    { name: "#8", value: 20 },
+    { name: "#9", value: 17 },
+    { name: "#10", value: 15 },
+  ],
+  december: [
+    { name: "#1", value: 14 },
+    { name: "#2", value: 16 },
+    { name: "#3", value: 13 },
+    { name: "#4", value: 18 },
+    { name: "#5", value: 12 },
+    { name: "#6", value: 20 },
+    { name: "#7", value: 10 },
+    { name: "#8", value: 17 },
+    { name: "#9", value: 19 },
+    { name: "#10", value: 11 },
+  ],
+};
 
-const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--chart-1)",
-  },
-} satisfies ChartConfig;
 
-export function ChartBarLabel() {
+const monthList = ["august", "september", "october", "november", "december"];
+
+export default function CustomMonthChart() {
+  const [selectedMonth, setSelectedMonth] = useState("august");
+
+ const [chartData, setChartData] = useState(monthlyData["august"]);
+
+useEffect(() => {
+  setChartData(monthlyData[selectedMonth]);
+}, [selectedMonth]);
+
+
   return (
-    <Card>
-      <CardHeader className="flex justify-between">
-        <div className="space-y-2">
-          <CardTitle className="text-5xl">
-            912,2 <span className="text-2xl">km</span>
-          </CardTitle>
-          <CardDescription>January - June 2024</CardDescription>
-        </div>
+    <div className="w-full max-w-5xl mx-auto mt-8 px-4 ">
+      <div className="flex justify-between">
         <div>
-          <Select>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select a Month" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Months</SelectLabel>
-                <SelectItem value="august">August</SelectItem>
-                <SelectItem value="september">September</SelectItem>
-                <SelectItem value="october">October</SelectItem>
-                <SelectItem value="november">November</SelectItem>
-                <SelectItem value="december">December</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <h2 className="text-6xl">
+            912,2 <sub>km</sub>
+          </h2>
+          <CardDescription>aug 1 - sep 30, 2022</CardDescription>
         </div>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig}>
-          <BarChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              top: 20,
-            }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8}>
-              <LabelList
-                position="top"
-                offset={12}
-                className="fill-foreground"
-                fontSize={12}
-              />
-            </Bar>
-          </BarChart>
-        </ChartContainer>
-      </CardContent>
-      {/* <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="text-muted-foreground leading-none">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter> */}
-    </Card>
+        <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+          <SelectTrigger className="max-w-[180px]">
+            <SelectValue placeholder="Select a Month" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Months</SelectLabel>
+              {monthList.map((month) => (
+                <SelectItem key={month} value={month}>
+                  {month.charAt(0).toUpperCase() + month.slice(1)}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      {/* Bar Chart */}
+      <ResponsiveContainer width="100%" height={400}>
+        <BarChart
+          data={chartData}
+          margin={{ top: 20, right: 20, bottom: 0, left: 0 }}
+          barCategoryGap={5}
+          barGap={1}
+        >
+          <defs>
+            <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#25D1A3" />
+              <stop offset="50%" stopColor="#5FFFD6" />
+              <stop offset="100%" stopColor="#25D1A3" />
+            </linearGradient>
+          </defs>
+
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <XAxis dataKey="name" hide />
+          <YAxis domain={[0, 25]} tickCount={6} />
+          <Tooltip />
+          <Bar
+            dataKey="value"
+            fill="url(#greenGradient)"
+            radius={[4, 4, 0, 0]}
+            label={{ fill: "#000000", fontSize: 12, position: "top" }}
+            activeBar={<Rectangle fill="#25D1A3" stroke="#5FFFD6" />}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   );
 }
