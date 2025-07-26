@@ -16,7 +16,7 @@ const Cards = () => {
         title="Your longest trip"
         number={210}
         numberSub="Km"
-        className="relative before:content-['_'] before:absolute before:inset-0 before:-z-10 before:opacity-50 before:bg-[url('/CIV.png')] before:size-full before:bg-cover before:bg-center before:rounded-md justify-center gap-4"
+        className="relative before:content-['_'] before:absolute before:inset-0 before:-z-10 before:opacity-50 before:bg-[url('/CIV.png')] before:size-full before:bg-cover before:bg-center before:rounded-3xl justify-center gap-4"
         numberClassName="text-4xl lg:text-7xl"
         paragraph="Only 230km to go"
       />

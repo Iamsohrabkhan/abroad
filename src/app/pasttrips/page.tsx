@@ -58,7 +58,7 @@ const Page = () => {
           </button>
         </div>
         <div
-          className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative before:content-[''] before:absolute before:top-[16px] before:left-[-21px] before:border-[11px] before:border-transparent before:border-r-accent after:content-[''] after:absolute after:top-[17px] after:left-[-19px] after:shadow-xl after:border-[10px] after:border-transparent after:border-r-white"
+          className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative before:content-[''] before:absolute before:top-[16px] before:left-[0] before:-translate-x-full  before:border-[11px] before:border-transparent before:border-r-accent after:content-[''] after:absolute after:top-[17px] after:left-[-19px] after:shadow-xl after:border-[10px] after:border-transparent after:border-r-white"
 
         >
           <h4>Your tickets</h4>

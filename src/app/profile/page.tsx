@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/container";
 import React from "react";
 import CustomMonthChart from "./chart";
-import { ArrowDown, User } from "lucide-react";
 import Cards from "./cards";
 
 const Page = () => {

@@ -194,3 +194,10 @@
     }
   }
 }
+
+.speech-bubble {
+	position: relative;
+	background: #fff;
+	border-radius: .4em;
+}
+
