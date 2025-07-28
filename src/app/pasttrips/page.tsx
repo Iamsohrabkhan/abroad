@@ -1,3 +1,4 @@
+"use client";
 import { Container } from "@/components/ui/container";
 import Ouigo from "@/icons/ouigo";
 import { Separator } from "@radix-ui/react-separator";
@@ -8,75 +9,117 @@ import {
   Smartphone,
   User,
 } from "lucide-react";
-import React from "react";
+import { motion } from "motion/react";
+import React, { useState } from "react";
 
 const Page = () => {
+  const [active, setActive] = useState<"pasttrips" | "upcomingtrips">(
+    "upcomingtrips"
+  );
+
   return (
     <Container>
       <div>
         <h2>My Booking</h2>
-        <ul className="flex gap-4 mt-4">
-          <li>Upcoming trips</li>
-          <li>Past trips</li>
+        <ul className="flex gap-6 mt-4 [&>li]:cursor-pointer [&>li]:relative ">
+          <li onClick={() => setActive("pasttrips")}>
+            <span
+              className={` ${
+                active === "pasttrips" ? "opacity-100" : "opacity-80"
+              }`}
+            >
+              Upcoming trips
+            </span>
+            {active === "pasttrips" && (
+              <motion.span
+                layoutId="trip-pill"
+                className="inline-block bg-purple-700 h-1 w-full absolute -bottom-2 left-0 right-0"
+              />
+            )}
+          </li>
+          <li onClick={() => setActive("upcomingtrips")}>
+            <span
+              className={` ${
+                active === "upcomingtrips" ? "opacity-100" : "opacity-80"
+              }`}
+            >
+              Past trips
+            </span>
+            {active === "upcomingtrips" && (
+              <motion.span
+                layoutId="trip-pill"
+                className="inline-block bg-purple-700 h-1 w-full absolute -bottom-2 left-0 right-0"
+              />
+            )}
+          </li>
         </ul>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6">
-        <div className="p-6 border border-accent space-y-6 lg:col-span-8 rounded-md h-fit shadow-xl">
-          <div className="flex justify-between items-center">
-            <h4>Toulouse Metabiau to Paris Austerlitz</h4>
-            <h5>$55.00</h5>
-          </div>
-          <div className="gap-4 flex">
-            <User />
-            <h5 className="uppercase">Balendine pelagie seni epse yapo</h5>
-          </div>
-          <div className="grid  grid-cols-2 lg:grid-cols-3 lg:items-center bg-gray-100 py-4 px-6 rounded-md gap-6">
-            <div className="flex justify-between items-center ">
-              <div className="flex gap-2 ">
-                <ArrowRight />
-                <p>
-                  Tue, <strong>28 Aug</strong>
-                </p>
+      <div className="">
+        {active === "upcomingtrips" ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6">
+            <div className="p-6 border border-accent space-y-6 lg:col-span-8 rounded-md h-fit shadow-xl">
+              <div className="flex justify-between items-center">
+                <h4>Toulouse Metabiau to Paris Austerlitz</h4>
+                <h5>$55.00</h5>
               </div>
-            </div>
-            <div>
-              <div className="inline-flex gap-1">
-                <span>06:20</span>
-                <span>
-                  <ArrowRight />
-                </span>
-                <span>06:20</span>
+              <div className="gap-4 flex">
+                <User />
+                <h5 className="uppercase">Balendine pelagie seni epse yapo</h5>
               </div>
+              <div className="grid  grid-cols-2 lg:grid-cols-3 lg:items-center bg-gray-100 py-4 px-6 rounded-md gap-6">
+                <div className="flex justify-between items-center ">
+                  <div className="flex gap-2 ">
+                    <ArrowRight />
+                    <p>
+                      Tue, <strong>28 Aug</strong>
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div className="inline-flex gap-1">
+                    <span>06:20</span>
+                    <span>
+                      <ArrowRight />
+                    </span>
+                    <span>06:20</span>
+                  </div>
+                </div>
+                <div className="flex gap-2 items-center">
+                  <p>5h 35min .0 changes</p>
+                  <ChevronDown />
+                </div>
+              </div>
+              <button className="border border-accent py-3 px-4 font-bold">
+                Manage booking
+              </button>
             </div>
-            <div className="flex gap-2 items-center">
-              <p>5h 35min .0 changes</p>
-              <ChevronDown />
+            <div
+              className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative before:content-[''] 
+            "
+            >
+              <div className="absolute size-4 top-6 left-0 bg-accent -translate-x-[calc(100%)] [clip-path:_polygon(100%_100%,0_50%,100%_0)]" />
+              <div className="absolute size-4 top-6 left-0  bg-white scale-80 border-white border -translate-x-[calc(100%-0.5px)] [clip-path:_polygon(100%_100%,0_50%,100%_0)]" />
+              <div className="absolute h-4 scale-85 rounded-full w-1  top-6 left-0 bg-white -translate-x-[2px] " />
+              <h4>Your tickets</h4>
+              <div className="p-4 border rounded-md border-accent flex justify-between items-center">
+                <Smartphone />
+                <div className="flex flex-col gap-1">
+                  <button className="font-bold">etickets</button>
+                  <button className="text-blue-400">View tickets</button>
+                  <button className="text-blue-400">How it works</button>
+                </div>
+                <Ouigo />
+              </div>
+              <p>Passenger need valid form of ID</p>
+              <button className="bg-gray-100 p-3 w-full flex justify-start rounded-md">
+                Booking reference: &nbsp;{" "}
+                <strong className="uppercase"> TPRUZu</strong>
+              </button>
             </div>
           </div>
-          <button className="border border-accent py-3 px-4 font-bold">
-            Manage booking
-          </button>
-        </div>
-        <div
-          className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative before:content-[''] before:absolute before:top-[16px] before:left-[0] before:-translate-x-full  before:border-[11px] before:border-transparent before:border-r-accent after:content-[''] after:absolute after:top-[17px] after:left-[-19px] after:shadow-xl after:border-[10px] after:border-transparent after:border-r-white"
-
-        >
-          <h4>Your tickets</h4>
-          <div className="p-4 border rounded-md border-accent flex justify-between items-center">
-            <Smartphone />
-            <div className="flex flex-col gap-1">
-              <button className="font-bold">etickets</button>
-              <button className="text-blue-400">View tickets</button>
-              <button className="text-blue-400">How it works</button>
-            </div>
-            <Ouigo />
-          </div>
-          <p>Passenger need valid form of ID</p>
-          <button className="bg-gray-100 p-3 w-full flex justify-start rounded-md">
-            Booking reference: &nbsp;{" "}
-            <strong className="uppercase"> TPRUZu</strong>
-          </button>
-        </div>
+        ) : (
+          <div>No Upcoming trips</div>
+        )}
       </div>
 
       <button className="flex justify-center items-center p-3 border border-accent w-full gap-2 text-accent">

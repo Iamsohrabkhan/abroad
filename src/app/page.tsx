@@ -15,8 +15,8 @@ import { Container } from "@/components/ui/container";
 export default function Home() {
   return (
     <>
-        <Header />
-        <Hero />
+      <Header />
+      <Hero />
       <Marquee />
       <Container>
         <Slider />
@@ -30,7 +30,6 @@ export default function Home() {
         <Recomendeddestinations />
         <ChooseUs />
       </Container>
-
     </>
   );
 }

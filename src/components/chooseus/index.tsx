@@ -56,7 +56,7 @@ const Card = ({ icon, heading, paragraph }: CardProps) => {
                 shadow-[0_0_60px_rgba(242,98,181,0.5),0_0_120px_rgba(95,197,255,0.3),0_0_180px_rgba(255,172,137,0.2)]
                 hover:shadow-[0_0_80px_rgba(242,98,181,0.7),0_0_160px_rgba(95,197,255,0.5),0_0_240px_rgba(255,172,137,0.3)] animate-blob  mix-blend-multiply "
       />
-      <div className="relative flex items-center justify-between gap-6 shadow  p-7 bg-white/60 backdrop-blur-lg z-10 h-full rounded-2xl">
+      <div className="relative flex items-center justify-between gap-6 shadow  p-7 bg-white/80 backdrop-blur-lg z-10 h-full rounded-2xl">
         {icon}
         <div className="content flex justify-between flex-col relative rounded-2xl">
         <div className="h-14 absolute -left-4 -translate-y-1/2 top-1/2 ">
