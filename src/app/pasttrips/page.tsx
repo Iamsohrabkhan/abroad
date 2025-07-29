@@ -97,9 +97,26 @@ const Page = () => {
               className="lg:col-span-4 p-6 border border-accent space-y-6 shadow-xl rounded-md relative before:content-[''] 
             "
             >
-              <div className="absolute size-4 top-6 left-0 bg-accent -translate-x-[calc(100%)] [clip-path:_polygon(100%_100%,0_50%,100%_0)]" />
-              <div className="absolute size-4 top-6 left-0  bg-white scale-80 border-white border -translate-x-[calc(100%-0.5px)] [clip-path:_polygon(100%_100%,0_50%,100%_0)]" />
-              <div className="absolute h-4 scale-85 rounded-full w-1  top-6 left-0 bg-white -translate-x-[2px] " />
+              <div>
+                <span className="h-[16px] w-2 bg-white top-6 left-0 z-10 absolute translate-y-[calc(50%+1.5px)] -translate-x-[1px]" />
+                <span className="h-[40px] w-2 bg-white top-6 left-0 z-20 absolute  " />
+                <svg
+                  viewBox="0 0 35 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute left-0 top-6 -translate-x-full size-[35px]"
+                >
+                  <path
+                    d="M 20 100 
+       Q 20 90 35 82
+       L 160 30
+       L 160 170
+       L 35 118
+       Q 20 110 20 100 Z"
+                    className="fill-white stroke-accent stroke-4"
+                  />
+                </svg>
+              </div>
+
               <h4>Your tickets</h4>
               <div className="p-4 border rounded-md border-accent flex justify-between items-center">
                 <Smartphone />
